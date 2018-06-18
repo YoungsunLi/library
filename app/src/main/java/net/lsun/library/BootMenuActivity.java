@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class BootMenuActivity extends Activity {
 
@@ -17,16 +18,26 @@ public class BootMenuActivity extends Activity {
 
         SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
         SharedPreferences.Editor prefsEdit = prefs.edit();
+
+
+        String bootKey = prefs.getString("bootKey", "");
         prefsEdit.apply();
-        String setRoot = prefs.getString("setRoot", "");
+        Toast.makeText(this, bootKey, Toast.LENGTH_SHORT).show();
 
-        if (setRoot.equals("")) {
-            prefsEdit.apply();
-            setRoot();
-        } else {
-            login();
+        switch (bootKey) {
+            case "":
+                setRoot();
+                break;
+            case "login":
+                login();
+                break;
+            case "root":
+                Root();
+                break;
+            case "admin":
+                Admin();
+                break;
         }
-
     }
 
     //跳到设置系统管理员
@@ -40,6 +51,18 @@ public class BootMenuActivity extends Activity {
     //跳到登陆页
     private void login() {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        BootMenuActivity.this.finish();
+    }
+
+    private void Root() {
+        Intent intent = new Intent(this, RootActivity.class);
+        startActivity(intent);
+        BootMenuActivity.this.finish();
+    }
+
+    private void Admin() {
+        Intent intent = new Intent(this, AdminActivity.class);
         startActivity(intent);
         BootMenuActivity.this.finish();
     }

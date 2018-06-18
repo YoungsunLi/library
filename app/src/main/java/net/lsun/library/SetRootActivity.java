@@ -49,7 +49,7 @@ public class SetRootActivity extends Activity {
 //                        prefsEdit.putString("RootUser", user);
 //                        prefsEdit.putString("RootPwd", pwd);
                         dbAdd(user,pwd,"root");
-                        prefsEdit.putString("setRoot", "1");
+                        prefsEdit.putString("bootKey", "login");
                         prefsEdit.apply();
                         Toast("系统管理员注册成功");
                         login();
@@ -60,13 +60,13 @@ public class SetRootActivity extends Activity {
 
     }
     private void Toast(String tips) {
-        Toast.makeText(SetRootActivity.this, tips, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, tips, Toast.LENGTH_SHORT).show();
     }
 
 
     //跳到登陆页
     private void login() {
-        Intent intent = new Intent(SetRootActivity.this, LoginActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         SetRootActivity.this.finish();
     }
