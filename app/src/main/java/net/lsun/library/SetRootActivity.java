@@ -3,6 +3,7 @@ package net.lsun.library;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SetRootActivity extends Activity {
+    private SQLite sqLite;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class SetRootActivity extends Activity {
         final EditText setRootUser = findViewById(R.id.set_root_user);
         final EditText setRootPwd = findViewById(R.id.set_root_pwd);
         Button setRootSave = findViewById(R.id.set_root_save);
+
+        sqLite = new SQLite(this, "userList", null, 1);
 
         SharedPreferences prefs = getSharedPreferences("Prefs",MODE_PRIVATE);
         final SharedPreferences.Editor prefsEdit = prefs.edit();
@@ -42,8 +46,9 @@ public class SetRootActivity extends Activity {
                     } else if (pwd.equals("")) {
                         Toast("你还没有填写密码！");
                     } else {
-                        prefsEdit.putString("RootUser", user);
-                        prefsEdit.putString("RootPwd", pwd);
+//                        prefsEdit.putString("RootUser", user);
+//                        prefsEdit.putString("RootPwd", pwd);
+                        dbAdd(user,pwd,"root");
                         prefsEdit.putString("setRoot", "1");
                         prefsEdit.apply();
                         Toast("系统管理员注册成功");
@@ -64,5 +69,12 @@ public class SetRootActivity extends Activity {
         Intent intent = new Intent(SetRootActivity.this, LoginActivity.class);
         startActivity(intent);
         SetRootActivity.this.finish();
+    }
+
+    //SQLite
+    private void dbAdd(String user, String pwd, String su) {
+        SQLiteDatabase database = sqLite.getWritableDatabase();
+        database.execSQL("insert into userList (user, pwd, su) values ('" + user + "','" + pwd + "','" + su + "')");
+        database.close();
     }
 }
