@@ -5,15 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".LoginActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="5">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@mipmap/loginbg" />
+            android:src="@mipmap/loginbg"
+            android:contentDescription="@string/app_name" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,14 +64,16 @@
                 android:layout_width="24sp"
                 android:layout_height="24sp"
                 android:layout_marginTop="10sp"
-                android:src="@mipmap/user" />
+                android:src="@mipmap/user"
+                android:contentDescription="@string/user_tips" />
 
             <EditText
                 android:id="@+id/login_edit_userName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:baselineAligned="false"
-                android:hint="@string/userName_tips"
+                android:hint="@string/user_tips"
+                android:inputType="textPersonName"
                 android:singleLine="true"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -82,8 +88,8 @@
                 android:layout_width="24sp"
                 android:layout_height="24sp"
                 android:layout_marginTop="10sp"
-                android:src="@mipmap/pwd" />
-
+                android:src="@mipmap/pwd"
+                android:contentDescription="@string/pwd_tips" />
 
             <EditText
                 android:id="@+id/login_edit_pwd"
@@ -93,6 +99,7 @@
                 android:inputType="textPassword"
                 android:singleLine="true"
                 android:textSize="16sp" />
+
         </LinearLayout>
 
         <CheckBox
@@ -102,7 +109,7 @@
             android:layout_alignEnd="@+id/login_pwd"
             android:layout_below="@+id/login_pwd"
             android:layout_marginEnd="4sp"
-            android:text="@string/rmPwd"
+            android:text="@string/auto_login"
             android:textColor="@color/colorTextBlack" />
 
     </RelativeLayout>
@@ -121,5 +128,7 @@
             android:background="@drawable/btn_shape"
             android:text="@string/login"
             android:textColor="@color/colorTextWhite" />
+
     </RelativeLayout>
+
 </LinearLayout>

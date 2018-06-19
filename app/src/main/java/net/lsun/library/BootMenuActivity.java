@@ -18,11 +18,10 @@ public class BootMenuActivity extends Activity {
 
         SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
         SharedPreferences.Editor prefsEdit = prefs.edit();
-
-
         String bootKey = prefs.getString("bootKey", "");
         prefsEdit.apply();
-        Toast.makeText(this, bootKey, Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "bootKey="+bootKey, Toast.LENGTH_SHORT).show();
 
         switch (bootKey) {
             case "":
@@ -40,13 +39,12 @@ public class BootMenuActivity extends Activity {
         }
     }
 
-    //跳到设置系统管理员
+    //跳到注册系统管理员
     private void setRoot() {
         Intent intent = new Intent(this, SetRootActivity.class);
         startActivity(intent);
         BootMenuActivity.this.finish();
     }
-
 
     //跳到登陆页
     private void login() {
