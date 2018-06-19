@@ -21,8 +21,6 @@ public class BootMenuActivity extends Activity {
         String bootKey = prefs.getString("bootKey", "");
         prefsEdit.apply();
 
-        Toast.makeText(this, "bootKey="+bootKey, Toast.LENGTH_SHORT).show();
-
         switch (bootKey) {
             case "":
                 setRoot();
