@@ -5,10 +5,16 @@
     <string name="login">登陆</string>
     <string name="sign_up">注册</string>
     <string name="login_title_1">图书馆管理系统</string>
-    <string name="designer_info">广西电力职业技术学院电子系1608班李宏旭作品</string>
+    <string name="designer_info">广西电力职业技术学院电子系1608班李宏旭作品.</string>
     <string name="signup_title_1">首次运行</string>
-    <string name="signup_title_2">请设置系统管理员账号</string>
-    <string name="signup_info">注意：注册成功后系统管理员注册入口将被关闭！</string>
+    <string name="signup_title_2">请先注册系统管理员</string>
+    <string name="signup_info">将被分配“ROOT”权限用于管理用户.</string>
     <string name="bootmenu">BootMenu</string>
     <string name="auto_login">自动登陆</string>
+    <string name="add">＋</string>
+    <string name="add_libraryer">注册图书管理员</string>
+    <string name="set_user_tips">默认分配“ADMIN”权限,即图书管理员.</string>
+    <string name="add_user">注册新用户</string>
+    <string name="admin">ADMIN图书管理员：(管理书籍,借书和还书)</string>
+    <string name="root">ROOT系统管理员：(管理用户)</string>
 </resources>

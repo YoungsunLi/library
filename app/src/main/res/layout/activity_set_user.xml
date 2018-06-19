@@ -19,29 +19,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/signup_title_2"
-            android:layout_marginStart="10sp"
-            android:shadowColor="@color/colorTextBlack"
-            android:shadowDx="2.0"
-            android:shadowDy="2.0"
-            android:shadowRadius="5.0"
-            android:text="@string/signup_title_1"
-            android:textColor="@color/colorTextWhite"
-            android:textSize="38sp" />
-
-        <TextView
-            android:id="@+id/signup_title_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_above="@id/designer_info"
             android:layout_marginStart="10sp"
             android:shadowColor="@color/colorTextBlack"
             android:shadowDx="2.0"
             android:shadowDy="2.0"
             android:shadowRadius="5.0"
-            android:text="@string/signup_title_2"
+            android:text="@string/add_user"
             android:textColor="@color/colorTextWhite"
-            android:textSize="28sp" />
+            android:textSize="32sp" />
 
         <TextView
             android:id="@+id/designer_info"
@@ -54,7 +40,7 @@
             android:shadowDx="1.0"
             android:shadowDy="1.0"
             android:shadowRadius="3.0"
-            android:text="@string/signup_info"
+            android:text="@string/set_user_tips"
             android:textColor="@color/colorTextWhite" />
 
     </RelativeLayout>
@@ -63,15 +49,16 @@
         android:id="@+id/login_rl_all"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginEnd="10sp"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="20sp"
+
         android:layout_weight="5">
 
         <LinearLayout
             android:id="@+id/login_userName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="20sp">
 
             <ImageView
                 android:layout_width="24sp"
@@ -96,6 +83,8 @@
             android:id="@+id/login_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10sp"
+            android:layout_marginStart="10sp"
             android:layout_below="@+id/login_userName">
 
             <ImageView
@@ -115,7 +104,32 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6sp"
+            android:layout_marginStart="6sp"
+            android:layout_below="@id/login_pwd">
 
+            <RadioButton
+                android:id="@+id/add_user_rb_root"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/root"
+                android:textColor="@color/colorTextBlack">
+
+            </RadioButton>
+            <RadioButton
+                android:id="@+id/add_user_rb_admin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/admin"
+                android:textColor="@color/colorTextBlack">
+
+            </RadioButton>
+
+        </RadioGroup>
     </RelativeLayout>
 
     <RelativeLayout
